@@ -76,8 +76,8 @@ body {
 #board-container {
   display: flex;
   flex-wrap: wrap;
-  width: 22rem;
-  height: 22rem;
+  width: 26rem;
+  height: 26rem;
   border: 0.15rem solid #e0e0e0;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 9px;
 }
@@ -90,6 +90,11 @@ body {
   min-height: calc(100% / 3);
   border: 0.15rem solid #e0e0e0;
   background-color: #eee;
+}
+
+.field .eks,
+.field .oks {
+  pointer-events: none;
 }
 
 .field .eks::after {
@@ -121,3 +126,4 @@ body {
   color: #4c5c68;
   margin-left: 0.3rem;
 }
+
