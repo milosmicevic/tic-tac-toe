@@ -92,9 +92,17 @@ body {
   background-color: #eee;
 }
 
+@keyframes expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
 .field .eks,
 .field .oks {
   pointer-events: none;
+  animation: expand 0.1s ease-out;
 }
 
 .eks {
@@ -145,4 +153,3 @@ body {
   color: #4c5c68;
   margin-left: 0.3rem;
 }
-
