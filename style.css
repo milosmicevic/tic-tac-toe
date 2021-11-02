@@ -97,14 +97,33 @@ body {
   pointer-events: none;
 }
 
-.field .eks::after {
-  content: "\274c";
-  font-size: 3.9rem;
+.eks {
+  width: 3.9rem;
+  height: 3.9rem;
+  position: relative;
+}
+
+.eks:after {
+  content: "";
+  height: 3.9rem;
+  border-left: 0.5rem solid #dd2e44;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 1.75rem;
+}
+
+.eks:before {
+  content: "";
+  height: 3.9rem;
+  border-left: 0.5rem solid #dd2e44;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 1.75rem;
 }
 
 .field .oks {
-  width: 3.9rem;
-  height: 3.9rem;
+  width: 3.4rem;
+  height: 3.4rem;
   border: 0.5rem solid #457b9d;
   border-radius: 50%;
 }
