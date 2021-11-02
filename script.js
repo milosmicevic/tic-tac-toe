@@ -1,7 +1,6 @@
 const boardContainer = document.querySelector("#board-container");
 const fields = document.querySelectorAll(".field");
 
-const board = [];
 const eksIndexes = [];
 const oksIndexes = [];
 
@@ -26,7 +25,6 @@ function eksSign(fieldIndex) {
   const eks = document.createElement("span");
   eks.classList.add("eks");
 
-  board[fieldIndex] = "x";
   eksIndexes.push(fieldIndex);
 
   return eks;
@@ -36,7 +34,6 @@ function oksSign(fieldIndex) {
   const oks = document.createElement("span");
   oks.classList.add("oks");
 
-  board[fieldIndex] = "o";
   oksIndexes.push(fieldIndex);
 
   return oks;
