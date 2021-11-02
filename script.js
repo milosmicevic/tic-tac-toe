@@ -1,8 +1,8 @@
 const boardContainer = document.querySelector("#board-container");
 const fields = document.querySelectorAll(".field");
 
-const eksIndexes = [];
-const oksIndexes = [];
+let eksIndexes = [];
+let oksIndexes = [];
 
 let turnCounter = 1;
 
@@ -17,7 +17,7 @@ boardContainer.addEventListener("click", (e) => {
   }
 
   if (turnCounter > 9) {
-    alert("It's Draw!");
+    alert("Its Tie!");
   }
 });
 
@@ -54,8 +54,17 @@ function checkWinner() {
   winCombos.forEach((combo) => {
     if (combo.every((index) => eksIndexes.includes(index))) {
       alert("X has Won!");
+      resetGame();
     } else if (combo.every((index) => oksIndexes.includes(index))) {
       alert("O has Won!");
+      resetGame();
     }
   });
+}
+
+function resetGame() {
+  eksIndexes = [];
+  oksIndexes = [];
+  turnCounter = 1;
+  fields.forEach((field) => (field.innerHTML = ""));
 }
