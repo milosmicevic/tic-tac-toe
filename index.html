@@ -21,12 +21,22 @@
         <h1><img src="favicon.ico" alt="logo" /> Tic Tac Toe</h1>
       </header>
       <main>
-        <div id="player-one-container">
-          <h3>
-            <span id="player-one-name">Player</span>
-            <i class="fas fa-user-secret"></i>
-          </h3>
-          <span id="player-one-score">0</span>
+        <div class="players-container">
+          <div id="player-one-container">
+            <h3>
+              <span id="player-one-name">Player 1</span>
+              <i class="fas fa-user-secret"></i>
+            </h3>
+          </div>
+          <div id="message-container">
+            <h3 id="message"></h3>
+          </div>
+          <div id="player-two-container">
+            <h3>
+              <i class="fas fa-user-astronaut"></i>
+              <span id="player-two-name">Player 2</span>
+            </h3>
+          </div>
         </div>
         <div id="board-container">
           <div class="field" id="0"></div>
@@ -39,14 +49,31 @@
           <div class="field" id="7"></div>
           <div class="field" id="8"></div>
         </div>
-        <div id="player-two-container">
-          <h3>
-            <span id="player-two-name">Robot</span>
-            <i class="fas fa-user-astronaut"></i>
-          </h3>
-          <span id="player-two-score">0</span>
+        <div id="dialog-box">
+          <h2>Enter Your Names</h2>
+          <div class="player-input">
+            <label>Player <i class="fas fa-user-secret"></i></label>
+            <input
+              type="text"
+              placeholder="Enter a Name (X)"
+              id="player-one-input"
+              maxlength="10"
+            />
+          </div>
+          <div class="player-input">
+            <label>Player <i class="fas fa-user-astronaut"></i></label>
+            <input
+              type="text"
+              placeholder="Enter a Name (O)"
+              id="player-two-input"
+              maxlength="10"
+            />
+          </div>
+          <span class="error-message"></span>
+          <input type="submit" value="Play" id="play-button" />
         </div>
       </main>
+      <div id="dark-background"></div>
       <footer>
         <p>Copyright © 2021</p>
         <a href="https://github.com/milosmicevic" target="_blank">
@@ -56,4 +83,3 @@
     </div>
   </body>
 </html>
-
