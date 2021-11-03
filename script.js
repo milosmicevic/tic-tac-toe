@@ -1,12 +1,16 @@
 const boardContainer = document.querySelector("#board-container");
 const fields = document.querySelectorAll(".field");
 const message = document.querySelector("#message");
+
 const playButton = document.querySelector("#play-button");
+const restartButton = document.querySelector("#restart-button");
 
 let eksIndexes = [];
 let oksIndexes = [];
 
-let turnCounter = 1;
+let moveCounter = 1;
+
+let isGameDone = false;
 
 function setPlayerNames() {
   const dialogBox = document.querySelector("#dialog-box");
@@ -30,7 +34,7 @@ function setPlayerNames() {
   }
 }
 
-function eksSign(fieldIndex) {
+function setEksSign(fieldIndex) {
   const eks = document.createElement("span");
   eks.classList.add("eks");
 
@@ -39,13 +43,28 @@ function eksSign(fieldIndex) {
   return eks;
 }
 
-function oksSign(fieldIndex) {
+function setOksSign(fieldIndex) {
   const oks = document.createElement("span");
   oks.classList.add("oks");
 
   oksIndexes.push(fieldIndex);
 
   return oks;
+}
+
+function playMove(event) {
+  if (isGameDone) {
+    return;
+  } else if (event.target.innerHTML === "") {
+    const fieldIndex = event.target.id;
+
+    event.target.appendChild(
+      moveCounter % 2 !== 0 ? setEksSign(fieldIndex) : setOksSign(fieldIndex)
+    );
+
+    moveCounter++;
+    checkWinner();
+  }
 }
 
 function checkWinner() {
@@ -65,14 +84,13 @@ function checkWinner() {
   winCombos.forEach((combo) => {
     if (combo.every((index) => eksIndexes.includes(index))) {
       message.innerText = `${playerOneName} Won! 🏆`;
-      setTimeout(() => {
-        resetGame();
-      }, 500);
+      isGameDone = true;
     } else if (combo.every((index) => oksIndexes.includes(index))) {
       message.innerText = `${playerTwoName} Won! 🏆`;
-      setTimeout(() => {
-        resetGame();
-      }, 500);
+      isGameDone = true;
+    } else if (moveCounter > 9) {
+      message.innerText = "Its Tie 😬";
+      isGameDone = true;
     }
   });
 }
@@ -80,26 +98,15 @@ function checkWinner() {
 function resetGame() {
   eksIndexes = [];
   oksIndexes = [];
-  turnCounter = 1;
+  moveCounter = 1;
+  isGameDone = false;
   fields.forEach((field) => (field.innerHTML = ""));
 }
 
 playButton.addEventListener("click", setPlayerNames);
 
 boardContainer.addEventListener("click", (e) => {
-  message.innerText = "";
-  if (e.target.innerHTML === "") {
-    const fieldIndex = e.target.id;
-
-    e.target.appendChild(
-      turnCounter % 2 !== 0 ? eksSign(fieldIndex) : oksSign(fieldIndex)
-    );
-    turnCounter++;
-    checkWinner();
-  }
-
-  if (turnCounter > 9) {
-    message.innerText = "Its Tie 😬";
-    resetGame();
-  }
+  playMove(e);
 });
+
+restartButton.addEventListener("click", resetGame);
