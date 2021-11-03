@@ -67,7 +67,7 @@ body {
 #message-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 36%;
 }
 
@@ -152,6 +152,18 @@ body {
   cursor: pointer;
 }
 
+#restart-button {
+  width: 15%;
+  height: 3rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fbfbff;
+  background-color: #e9c46a;
+  cursor: pointer;
+}
+
 #dialog-box {
   display: flex;
   flex-direction: column;
@@ -196,9 +208,13 @@ body {
   height: 2.3rem;
   border: none;
   border-radius: 0.7rem;
-  padding-left: 0.4rem;
   font-size: 1.1rem;
   color: #4c5c68;
+  padding: 0 0.5rem;
+}
+
+.player-input input[type="text"]::placeholder {
+  text-align: center;
 }
 
 #dialog-box .player-input input:focus {
@@ -223,12 +239,13 @@ body {
   border: none;
   border-radius: 0.7rem;
   color: #fbfbff;
-  background-color: #457b9d;
+  background-color: #e9c46a;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
 }
 
+#restart-button:hover,
 #dialog-box input[type="submit"]:hover {
   transform: scale(1.05);
 }
@@ -266,6 +283,10 @@ body {
     font-size: 1.8rem;
   }
 
+  #restart-button {
+    width: 25%;
+  }
+
   #dialog-box {
     width: 60%;
   }
@@ -284,6 +305,10 @@ body {
   #board-container {
     width: 20rem;
     height: 20rem;
+  }
+
+  #restart-button {
+    width: 40%;
   }
 
   #dialog-box {
