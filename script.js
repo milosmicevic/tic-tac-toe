@@ -99,6 +99,7 @@ function resetGame() {
   eksIndexes = [];
   oksIndexes = [];
   moveCounter = 1;
+  message.innerText = "";
   isGameDone = false;
   fields.forEach((field) => (field.innerHTML = ""));
 }
