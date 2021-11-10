@@ -88,7 +88,7 @@ function checkWinner() {
     } else if (combo.every((index) => oksIndexes.includes(index))) {
       message.innerText = `${playerTwoName} Won! 🏆`;
       isGameDone = true;
-    } else if (moveCounter > 9) {
+    } else if (moveCounter > 10) {
       message.innerText = "Its Tie 😬";
       isGameDone = true;
     }
